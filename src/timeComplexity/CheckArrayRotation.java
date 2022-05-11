@@ -5,10 +5,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 
-public class RotateArray {
-	
+public class CheckArrayRotation {
 
-	 static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	    
 	    public static int[] takeInput() throws IOException {
 	        int size = Integer.parseInt(br.readLine().trim());
@@ -43,11 +42,12 @@ public class RotateArray {
 	        while(t > 0) {
 
 	            int[] input = takeInput();
-	            int d = Integer.parseInt(br.readLine().trim());
-	            RotateArrayUse.rotate(input, d);
-	            printArray(input);
+	            int ans = CheckArrayRotationUse.arrayRotateCheck(input);
+	            System.out.println(ans);
 
 	            t -= 1;
 	        }
 	    }
 	}
+
+

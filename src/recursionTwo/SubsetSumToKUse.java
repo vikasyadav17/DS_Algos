@@ -44,10 +44,8 @@ public class SubsetSumToKUse {
 	
 	
 	public static void printSubsetsSumTok(int input[], int k) {
-		// Write your code here
-//		System.out.println("sorting array");
+	
 		bubbleSort(input);
-//		for(int i=0;i<input.length;i++) System.out.print( input[i] + " ");
 		printSubsetsSumTok(input,0,1,k);
 			
 	}
