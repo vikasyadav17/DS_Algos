@@ -5,7 +5,12 @@ import java.util.Stack;
 public class StackSpanUse {
 
 	public static int[] stockSpan(int[] price) {
+	
 		//Your code goes here
+		
+		if(price.length==0 || price.length==1) {
+			return price;
+		}
 		
 		Stack<Integer> stack = new Stack<Integer>();
 		int[] result = new int[price.length];
@@ -28,7 +33,7 @@ public class StackSpanUse {
 				int j=i-1;
 				int counter=1;
 				while(j>=0) {
-					if(price[i]==price[j]) break;
+					if(price[i]<price[j]) break;
 					else if(price[i]>price[j]) {
 						counter++;
 						--j;

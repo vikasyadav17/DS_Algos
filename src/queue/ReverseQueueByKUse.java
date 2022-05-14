@@ -10,11 +10,11 @@ public class ReverseQueueByKUse {
 		//1 2 3 4 5
 		//3 2 1 4 5
 		if(k==input.size()) {
-			return 
+			return  input;
 		}
 
 		
-		
+		return input;
 	}
 }
 	
