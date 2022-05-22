@@ -3,9 +3,7 @@ package linkedList;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
-import recursion.solution;
-
+ 
 public class AppendLastNToFirst {
 
 	 static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
