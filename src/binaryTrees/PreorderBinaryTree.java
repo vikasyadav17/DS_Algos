@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class MirrorABinaryTree {
+public class PreorderBinaryTree {
 
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
@@ -13,10 +13,6 @@ public class MirrorABinaryTree {
 		int start = 0;
 
 		String[] nodeDatas = br.readLine().trim().split(" ");
-
-		if (nodeDatas.length == 1) {
-			return null;
-		}
 
 		int rootData = Integer.parseInt(nodeDatas[start]);
 		start += 1;
@@ -54,42 +50,10 @@ public class MirrorABinaryTree {
 		return root;
 	}
 
-
-	private static void printLevelWise(BinaryTreeNode<Integer> root){
-		QueueUsingLL<BinaryTreeNode<Integer>>  primary = new QueueUsingLL<>();
-		QueueUsingLL<BinaryTreeNode<Integer>>  secondary = new QueueUsingLL<>();
-
-		primary.enqueue(root);
-
-		while(!primary.isEmpty()){
-			BinaryTreeNode<Integer> current=null;
-			try {
-				current = primary.dequeue();
-			} catch (QueueEmptyException e) {
-				System.out.println("Not possible");
-			}
-			System.out.print(current.value + " ");
-			if(current.left != null){
-				secondary.enqueue(current.left);
-			}
-			if(current.right != null){
-				secondary.enqueue(current.right);
-			}
-			if(primary.isEmpty()){
-				QueueUsingLL<BinaryTreeNode<Integer>>  temp = secondary;
-				secondary = primary;
-				primary = temp;
-				System.out.println();
-			}
-		}
-	}
-
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BinaryTreeNode<Integer> root = takeInput();
-		
-		MirrorABinaryTreeUse .mirrorBinaryTree(root);
-		printLevelWise(root);
-		
+		PreorderBinaryTreeUse.preOrder(root);
 	}
-	
 }
+	
+
