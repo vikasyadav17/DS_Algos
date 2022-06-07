@@ -1,8 +1,13 @@
 package binaryTrees;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class PostOrderBinaryTree {
+
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
 
 	public static BinaryTreeNode<Integer> takeInput() throws NumberFormatException, IOException {
 		QueueUsingLL<BinaryTreeNode<Integer>> pendingNodes = new QueueUsingLL<BinaryTreeNode<Integer>>();
