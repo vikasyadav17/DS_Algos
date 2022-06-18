@@ -1,7 +1,7 @@
 package binaryTrees;
 
 public class MirrorABinaryTreeUse {
-
+	
 	public static BinaryTreeNode mirror(BinaryTreeNode<Integer> root) {
 		if (root == null) {
 			return null;

@@ -3,33 +3,35 @@ package linkedListTwo;
 import linkedList.LinkedListNode;
 
 public class DeleteNodeRecursivelyUse {
+	
+//	1
+//	3 4 5 2 6 1 9 -1
+//	3
 
-	static int count=0;
-	static LinkedListNode<Integer> node ;
+	static int count=-1;
+	static LinkedListNode<Integer> node=null;
 	
 	public static LinkedListNode<Integer> deleteNodeRec(LinkedListNode<Integer> head, int pos) {
     	//Your code goes here
-	   if(count==1) node = head;
 		
-		if(head.next==null) {
-			if(count<pos) {
-				return node;
-			}
+		if(count==-1) {
+			node = head;
 		}
 		
-		if(pos==0) {
-			head = head.next;
-			return head;
+	 
+		if(head==null) {
+			return null;
 		}
 		
-		if(pos==(count-1)) {
-			head.next=head.next.next;
-			return node;
+		count++;
+		
+		if(count == (pos-1)) {
+			head.next = head.next.next;
+			deleteNodeRec(head, pos);
 		}
 		
-		 count++;
-		 deleteNodeRec(head.next, pos);
-		 return node;
+		deleteNodeRec(head.next,pos);
+		return node;
 	
 	}
 	
