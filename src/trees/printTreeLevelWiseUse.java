@@ -1,27 +1,26 @@
 package trees;
 
+
 public class printTreeLevelWiseUse {
 
-	static int count=0;
-	
-	static void printLevelWise(TreeNode<Integer> root) {
+	public static void printLevelWise(TreeNode<Integer> root) throws QueueEmptyException {
 
 		if (root == null) {
-			return ;
+			return;
 		}
-		
-		QueueUsingLL<Integer> queue = new QueueUsingLL<Integer>();
-		if(count==0) {
-			System.out.println(root.data);
-			count++;
+		TreeNodeQueueUsingLL<TreeNode<Integer>> pendingNodes = new TreeNodeQueueUsingLL<TreeNode<Integer>>();
+
+		pendingNodes.enqueue(root);
+
+		while (pendingNodes.size() > 0) {
+
+			System.out.println(pendingNodes.front().data);
+			for (int i = 0; i<pendingNodes.frontNode().children.size(); i++) {
+				System.out.println("inside ");
+				pendingNodes.enqueue(root.children.get(i));
+			}
+			pendingNodes.dequeue();
 		}
-		
-		for(int i=0;i<root.children.size();i++) {
-			queue.enqueue(root.children.get(i).data);
-			System.out.print(root.children.get(i).data + " ");
-		}
-		
-		
-		
+
 	}
 }

@@ -25,6 +25,13 @@ public class QueueUsingLL<T> {
 		}	
 		return front.data;
 	}
+	
+	Node frontNode() throws QueueEmptyException{
+		if(size == 0){
+			throw new QueueEmptyException();
+		}	
+		return front;
+	}
 
 	void enqueue(T element){
 		Node<T> newNode = new Node<T>(element);

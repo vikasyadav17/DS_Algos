@@ -2,6 +2,10 @@ package trees2;
 
 public class ReplaceEachNodeWithDepthUse {
 
+//	in - 10 3 20 30 40 2 40 50 0 0 0 0 
+//	out - 0 
+//	1 1 1 
+//	2 2 
 	
 
 	private static void replaceWithDepthValue(TreeNode<Integer> root, int depth) {
