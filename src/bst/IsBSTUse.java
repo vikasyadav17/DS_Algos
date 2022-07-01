@@ -9,10 +9,10 @@ public class IsBSTUse {
 			return true;
 		}
 
-		if (root.right != null && root.right.data < root.data && root.right.data!=root.data)
+		if (root.right != null && (root.right.data < root.data || root.right.data!=root.data))
 			return false;
 
-		if (root.left != null && root.left.data > root.data)
+		if (root.left != null && root.left.data >= root.data)
 			return false;
 
 		if (!isBST(root.left) || !isBST(root.right)) {

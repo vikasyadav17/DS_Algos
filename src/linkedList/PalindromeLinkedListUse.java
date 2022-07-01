@@ -1,47 +1,28 @@
 package linkedList;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PalindromeLinkedListUse {
 
-	public static LinkedListNode<Integer> printReverse(LinkedListNode<Integer> head) {
-	if(head==null) {
-		return head;
-	}
-	if(head.next == null) {
-		return head;
-	}
-	
-	LinkedListNode<Integer> next = null, prev = null,current=head;
-
-	while(current!=null) {
-	  next=current.next;
-	  current.next=prev;
-	  prev=current;
-	  current=next;			
-	}
-	head=prev;
-	return head;
-	}
-
 	public static boolean isPalindrome(LinkedListNode<Integer> head) {
-
-		if (head == null) {
-			return true;
-		}
-		LinkedListNode<Integer> node=head;
-		LinkedListNode<Integer> reverseLinkedList = printReverse(node);
+		// Your code goes here
 		
-		while(head!=null && reverseLinkedList!=null) {
-			System.out.println(head.data + " " + reverseLinkedList.data);
-			if(head.data.equals(reverseLinkedList.data)) {
-				head=head.next;
-				reverseLinkedList=reverseLinkedList.next;
-				
-			}
-			else return false;
-			
+		LinkedListNode<Integer> node = head;
+		List<Integer> list = new ArrayList<Integer>();
+		while(node!=null) {
+			list.add(node.data);
+			node = node.next;
 		}
-		return true;
-	
+		
+		Object[] arr = list.toArray();
+		boolean b = true;
+		 int mid = (arr.length)/2;
+		for(int i=0;i<mid;i++) {
+			 if(arr[i] != arr[arr.length-1-i]) b =  false;
+		}
+		
+		return b;
 	}
 
 }
