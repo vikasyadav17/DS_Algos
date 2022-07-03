@@ -1,7 +1,5 @@
 package linkedListTwo;
 
-import java.util.Queue;
-
 public class EvenAfterOddListUse {
 
 	static LinkedListNode<Integer> evenHead = null;
@@ -36,15 +34,17 @@ public class EvenAfterOddListUse {
 
 		LinkedListNode<Integer> node = evenAfterOdd(head.next);
 
-		if(node==null) {
-			if(oddHead!=null) {
-				if(evenHead!=null)
+		if (node == null) {
+			if (oddHead == null) {
+				return evenHead;
+			} else
 				oddTail.next = evenHead;
-			}
 		}
-		
-		
-		return (oddHead == null ? evenHead : oddHead);
+		if (evenHead == null) {
+			oddTail.next = null;
+		}
+
+		return oddHead;
 	}
 
 }
