@@ -1,51 +1,37 @@
 package stacks;
 
+import java.util.Iterator;
 import java.util.Stack;
 
 public class StackSpanUse {
 
 	public static int[] stockSpan(int[] price) {
-	
-		//Your code goes here
-		
-		if(price.length==0 || price.length==1) {
-			return price;
-		}
-		
-		Stack<Integer> stack = new Stack<Integer>();
+
+		// Your code goes here
 		int[] result = new int[price.length];
-		
+
 		for(int i=0;i<price.length;i++) {
-			
-			if(stack.isEmpty()) {
-				stack.push(price[i]);
-				result[i] =  1;
-				continue;
+			if(i==0) {
+				result[0]=1;
 			}
 			
-			else if(stack.peek()>=price[i]) {
-				stack.push(price[i]);
-			 result[i]=1;
-			 continue;
-			}
-			else {
-				stack.push(price[i]);
+			else if(price[i] > price[i-1]) {
 				int j=i-1;
-				int counter=1;
-				while(j>=0) {
-					if(price[i]<price[j]) break;
-					else if(price[i]>price[j]) {
-						counter++;
-						--j;
+				int count=1;
+				while(j!=-1) {
+					if(price[j]<price[i]) {
+						count++;
+						j--;
 					}
-					else --j;
+					else break;
+					
 				}
-				result[i]=counter;
+				result[i]=count;
 			}
-			
+			else result[i]=1;
 		}
 		
-		return result;		
+		return result;
 	}
 
 }

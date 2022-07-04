@@ -1,29 +1,63 @@
 package stacks;
 
+
 import java.util.Stack;
 
 public class MinimumbracketReversalUse {
 
 	public static int countBracketReversals(String input) {
 
-		int extra1=0,extra2=0;
-		
-		Stack<Character> stacks = new Stack<Character>();
-		
-		for(int i=0;i<input.length();i++) {
-			if(input.charAt(i)=='{') ++extra1;
-			else ++extra2;
+
+		Stack<Character> stack = new Stack<Character>();
+
+		for (int i = 0; i < input.length(); i++) {
+			char c = input.charAt(i);
+			if (c == '{') {
+				stack.push(c);
+			} else {
+				if (!stack.isEmpty() && stack.peek() == '{')
+					stack.pop();
+				else
+					stack.push(c);
+			}
+
 		}
-		if(extra1==extra2) {
-			return extra1+extra2;
-		}
-		int extra = extra1-extra2;
-		extra = (extra<0) ? extra*-1 : extra;
-		if(extra%2==0) {
-			return extra/2;
-		}
-		else {
+		if(stack.size()==0) {
 			return -1;
 		}
+		else 
+			if (stack.size() % 2 != 0)
+			return -1;
+		int leftBrace = 0, rightBrace = 0;
+		int noOfBracketsReversed = 0;
+		while (!stack.isEmpty()) {
+			if (stack.peek() == '{') {
+				if (leftBrace > 0) {
+					noOfBracketsReversed++;
+					leftBrace--;
+					stack.pop();
+				} else {
+					leftBrace++;
+					stack.pop();
+				}
+			}
+			else {
+				if(rightBrace>0) {
+					noOfBracketsReversed++;
+					rightBrace--;
+					stack.pop();
+				}
+				else {
+					rightBrace++;
+					stack.pop();
+				}
+			}
+		}
+		if(leftBrace == rightBrace) {
+			noOfBracketsReversed=noOfBracketsReversed+rightBrace*2;
+		}
+
+		return noOfBracketsReversed;
 	}
 }
+
