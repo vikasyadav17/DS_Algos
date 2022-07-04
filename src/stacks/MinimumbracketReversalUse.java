@@ -1,12 +1,13 @@
 package stacks;
 
-
 import java.util.Stack;
 
 public class MinimumbracketReversalUse {
 
 	public static int countBracketReversals(String input) {
 
+		if (input.length() % 2 != 0)
+			return -1;
 
 		Stack<Character> stack = new Stack<Character>();
 
@@ -22,42 +23,19 @@ public class MinimumbracketReversalUse {
 			}
 
 		}
-		if(stack.size()==0) {
+		if (stack.size() == 0 && stack.size() % 2 != 0) {
 			return -1;
 		}
-		else 
-			if (stack.size() % 2 != 0)
-			return -1;
-		int leftBrace = 0, rightBrace = 0;
-		int noOfBracketsReversed = 0;
+		int count = 0;
 		while (!stack.isEmpty()) {
-			if (stack.peek() == '{') {
-				if (leftBrace > 0) {
-					noOfBracketsReversed++;
-					leftBrace--;
-					stack.pop();
-				} else {
-					leftBrace++;
-					stack.pop();
-				}
+			char c1 = stack.pop();
+			char c2 = stack.pop();
+			
+			if(c1!=c2) {
+				count+=2;
 			}
-			else {
-				if(rightBrace>0) {
-					noOfBracketsReversed++;
-					rightBrace--;
-					stack.pop();
-				}
-				else {
-					rightBrace++;
-					stack.pop();
-				}
-			}
+			else count+=1;
 		}
-		if(leftBrace == rightBrace) {
-			noOfBracketsReversed=noOfBracketsReversed+rightBrace*2;
-		}
-
-		return noOfBracketsReversed;
+		return count;
 	}
 }
-
