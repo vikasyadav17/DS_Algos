@@ -1,5 +1,4 @@
- package trees;
-
+package trees;
 
 public class printTreeLevelWiseUse {
 
@@ -8,20 +7,24 @@ public class printTreeLevelWiseUse {
 		if (root == null) {
 			return;
 		}
-		TreeNodeQueueUsingLL<TreeNode<Integer>> pendingNodes = new TreeNodeQueueUsingLL<TreeNode<Integer>>();
 
-		pendingNodes.enqueue(root);
-	System.out.println(root.children.size());
-		
-		while (pendingNodes.size() > 0) {
+		QueueUsingLL<TreeNode<Integer>> qll = new QueueUsingLL<>();
+		qll.enqueue(root);
+		System.out.println(root.data);
+		int count = qll.size();
+		while (!qll.isEmpty()) {
 
-			System.out.println(pendingNodes.front().data);
-			System.out.println(pendingNodes.frontNode().children.size());
-			for (int i = 0; i<pendingNodes.frontNode().children.size(); i++) {
-				System.out.println("inside ");
-				pendingNodes.enqueue(root.children.get(i));
+			for (int i = 0; i < qll.front().children.size(); i++) {
+				System.out.print(qll.front().children.get(i).data + " ");
+				qll.enqueue(qll.front().children.get(i));
+				
 			}
-			pendingNodes.dequeue();
+			count--;
+			qll.dequeue();
+			if (count == 0) {
+				System.out.println();
+				count = qll.size();
+			}
 		}
 
 	}
