@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class PrintTreeLevelWise {
+public class LevelOrderTraversal {
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 	public static BinaryTreeNode<Integer> takeInput() throws NumberFormatException, IOException {
@@ -56,6 +56,6 @@ public class PrintTreeLevelWise {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BinaryTreeNode<Integer> root = takeInput();
 
-		PrintTreeLevelWiseUse.printLevelWise(root);
+		LevelOrderTraversalUse.printLevelWise(root);
 	}
 }
