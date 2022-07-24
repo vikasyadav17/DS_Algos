@@ -4,6 +4,10 @@ package hashmap;
 import java.util.ArrayList;
 
 public class Map <K, V> {
+	public class Entry<T1, T2> {
+
+	}
+
 	ArrayList<MapNode<K, V>> buckets;
 	int size;
 	int numBuckets;
