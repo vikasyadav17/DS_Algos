@@ -25,6 +25,20 @@ public class ReplacePiUse {
 		
 	}
 
+// 2nd method
+// 	if (input.length() == 1 || input.length() == 0) {
+// 			x = x +input;
+// 			return x;
+// 		}
 
+// 		else if (input.charAt(0) == 'p' && input.charAt(1) == 'i') {
+
+// 			x = x + "3.14" + replace(input.substring(2));
+// 		} else {
+// 			x = x + input.charAt(0) + replace(input.substring(1));
+// 		}
+// 		return x;
+
+	
 	
 }
